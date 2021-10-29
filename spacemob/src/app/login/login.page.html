@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="text-align: center;">
+    <h1>
+      <span>{{ title }} app is running!</span>
+    </h1>
+    <!-- <input [(ngModel)] = "register.email" placeholder="email"><br><br> -->
+    <swiper #swiper>
+      <ng-template swiperSlide>
+        <div class="signform">
+          <ion-input [(ngModel)]="registerInput.username" class="username" type="text" placeholder="username"></ion-input><br><br>
+          <ion-input [(ngModel)]="registerInput.first_name" class="firstname" type="text" placeholder="First Name"></ion-input><br><br>
+          <ion-input [(ngModel)]="registerInput.last_name" class="lastname" type="text" placeholder="Last Name"></ion-input><br><br>
+          <ion-input [(ngModel)]="registerInput.email" class="email" type="email" placeholder="email"></ion-input><br><br>
+          <ion-input [(ngModel)]="registerInput.password" class="password" type="password" placeholder="password"></ion-input><br><br>
+        </div>
+        <div class="actionButton">
+          <ion-button expand="block" fill="clear" mode="ios" type="button" (click)="onRegister()" class="signUp">Register User</ion-button><br><br>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="signform">
+          <ion-input [(ngModel)]="input.username" class="username" type="text" placeholder="username"></ion-input><br><br>
+          <ion-input [(ngModel)]="input.password" class="password" type="password" placeholder="password"></ion-input><br><br>
+        </div>
+        <div class="actionButton">
+          <ion-button expand="block" fill="clear" mode="ios" type="button" (click)="onLogin()" class="login">Login</ion-button>
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+
+</ion-content>
