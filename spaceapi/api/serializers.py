@@ -34,7 +34,7 @@ class UserDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserData
         fields = [
-            'author',
+            'author_id',
             'origin',
             'continent',
             'country'

@@ -21,6 +21,11 @@ const routes: Routes = [
     loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule),
     canActivate: [AuthGuardGuard]
   },
+  {
+    path: 'info',
+    loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule),
+    canActivate: [AuthGuardGuard]
+  },
 ];
 
 @NgModule({

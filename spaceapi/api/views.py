@@ -1,14 +1,10 @@
-import re
-from django.db.models import query
-from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.utils import tree
+from django.core import serializers as core_serializers
+from django.http.response import JsonResponse
 from rest_framework import viewsets, generics
-from rest_framework import response
-from rest_framework.decorators import action
+from rest_framework import serializers
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.views import APIView
 from api.serializers import UserSerializer, RegisterSerializer, UserDataSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
@@ -61,8 +57,7 @@ class UserDataView(viewsets.ModelViewSet):
 
     def get_queryset(self):
         print(self.request.user.id)
-        data = UserData.objects.filter(author_id=self.request.user.id)
-        print(data.values())
+        data = UserData.objects.filter(author_id=self.request.user.id).values()
         return data
 
     def update(self, request, *args, **kwargs):

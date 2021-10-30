@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Index</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 <app-navigation></app-navigation>
@@ -11,12 +11,14 @@
 <ion-content>
   <div style="text-align: center;">
     <button (click)="getUserData()">User</button>
-    <ion-input [(ngModel)]="userdata.origin" class="username" type="text" placeholder="Planet"></ion-input><br><br>
+    <ion-input [(ngModel)]="userdata.origin" autocomplete={{userdata.origin}} class="username" type="text" placeholder="Planet"></ion-input><br><br>
     <ion-input [(ngModel)]="userdata.continent" class="username" type="text" placeholder="Continent"></ion-input><br><br>
     <ion-input [(ngModel)]="userdata.country" class="username" type="text" placeholder="Country"></ion-input><br><br>
 
     <ion-button size = "small" fill="clear" mode="ios" type="button" (click)="userDataPost()" class="userData">Post</ion-button>
     <ion-button size = "small" fill="clear" mode="ios" type="button" (click)="userDataGet()" class="userData">Show</ion-button>
     <ion-button size = "small" fill="clear" mode="ios" type="button" (click)="userDataPut()" class="userData">Update</ion-button>
+
+    {{userdata.author}}
   </div>
 </ion-content>
