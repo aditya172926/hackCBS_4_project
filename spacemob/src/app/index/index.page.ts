@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-index',
   templateUrl: './index.page.html',
@@ -10,13 +9,11 @@ import { Router } from '@angular/router';
   providers: [ UserService ]
 })
 export class IndexPage implements OnInit {
-  userId;
   userdata;
 
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    this.userId = {'key': localStorage.getItem('user_id') };
     this.userdata = {
       author: localStorage.getItem('user_id'),
       origin: '',
@@ -35,19 +32,7 @@ export class IndexPage implements OnInit {
       }
     );
   }
-  onLogout() {
-    console.log(this.userId);
-    this.userService.logoutUser(this.userId).subscribe(
-      response => {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('user_id');
-        this.router.navigate(['/login']);
-      },
-      error => {
-        console.log('Error', error);
-      }
-    );
-  }
+
   userDataGet() {
     this.userService.getUpdatedUsers(localStorage.getItem('user_id')).subscribe(
       response => {

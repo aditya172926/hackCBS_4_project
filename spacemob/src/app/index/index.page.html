@@ -1,8 +1,12 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Index</ion-title>
   </ion-toolbar>
 </ion-header>
+<app-navigation></app-navigation>
 
 <ion-content>
   <div style="text-align: center;">
@@ -14,6 +18,5 @@
     <ion-button size = "small" fill="clear" mode="ios" type="button" (click)="userDataPost()" class="userData">Post</ion-button>
     <ion-button size = "small" fill="clear" mode="ios" type="button" (click)="userDataGet()" class="userData">Show</ion-button>
     <ion-button size = "small" fill="clear" mode="ios" type="button" (click)="userDataPut()" class="userData">Update</ion-button>
-    <ion-button (click) = "onLogout()">Logout</ion-button>
   </div>
 </ion-content>
